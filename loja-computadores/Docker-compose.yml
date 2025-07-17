@@ -1,0 +1,15 @@
+services:
+  db:
+    # Usa a imagem oficial do PostgreSQL baseada em Alpine Linux (mais leve)
+    image: postgres:alpine
+
+    # Mapeia a porta 5432 do container para a porta 5432 do host
+    ports:
+      - "5432:5432"
+
+    # Define variáveis de ambiente utilizadas pelo PostgreSQL
+    # Esses valores são definidos no arquivo .env ou pelo sistema
+    environment:
+      POSTGRES_USERNAME: ${DATABASE_USERNAME}   # Nome de usuário do banco
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}   # Senha do usuário do banco
+      POSTGRES_DB: ${DATABASE_NAME}             # Nome do banco de dados a ser criado
